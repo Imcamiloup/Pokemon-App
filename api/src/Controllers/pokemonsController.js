@@ -165,7 +165,7 @@ const getByNamePokemonsController = async  (name) => {
             },
             include: {
                 model: Type,
-                attributes: ["name"],
+                attributes: ["name","id"],
                 through: {
                     attributes: []
                 },
@@ -191,6 +191,7 @@ const getByNamePokemonsController = async  (name) => {
         try{
             const pokemonApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)? 
             await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`) : {};
+
             if (pokemonApi.data){
                 pokemonData = {
                     id: pokemonApi.data.id,
@@ -209,6 +210,8 @@ const getByNamePokemonsController = async  (name) => {
                         }
                     })
                 }
+
+                pokemonDat
             }
             else{
                 pokemonData = [];
