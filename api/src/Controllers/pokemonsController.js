@@ -211,7 +211,6 @@ const getByNamePokemonsController = async  (name) => {
                     })
                 }
 
-                pokemonDat
             }
             else{
                 pokemonData = [];

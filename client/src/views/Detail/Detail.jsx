@@ -1,4 +1,5 @@
 import useDetail from "../../hooks/useDetail";
+import "./Detail.css";
 
 const Detail = () => {
 
@@ -9,13 +10,13 @@ const Detail = () => {
     
 
     return (
-        <div key={pokemonDetail.id}>
+        <div key={pokemonDetail.id} className="detail-container"> 
             {detailError && <h2>{error}</h2>}
             {detailLoading ? <h2>Loading...</h2>:pokemonDetail && (
                 <div>
                     <h1>{pokemonDetail.name}</h1>
-                    <img src={pokemonDetail.image} alt={pokemonDetail.name} />
-                    <p>HP: {pokemonDetail.health}</p>
+                    <img src={pokemonDetail.image} alt={pokemonDetail.name} className="img"/>
+                    <p>HP: {pokemonDetail.height}</p>
                     <p>Attack: {pokemonDetail.attack}</p>
                     <p>Defense: {pokemonDetail.defense}</p>
                     <p>Speed: {pokemonDetail.speed}</p>

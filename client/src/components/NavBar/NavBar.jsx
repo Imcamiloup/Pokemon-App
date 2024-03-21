@@ -1,16 +1,30 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NavBar = ()=>{
-    return(
-        <div  className="relative top-0 left-0 w-full">
-            <div className=" bg-black shadow-md flex justify-end">
-                <a href="/home" className="text-white text-2xl px-4 py-2">NavBar</a>   
-            </div>
-            
+import './NavBar.css';
 
 
-        </div>
+const NavBar = () => {
+
+
+
+
+  return (
+    <div className="navbar">
         
-    )
-};
+      <Link to="/home" className="navbar-link" >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Pok%C3%A9_Ball_icon.svg" className='img1'></img>
+      <img src="https://pokedex-bice-five.vercel.app/logo.png" className='img2'></img>
+      </Link>
+      <Link to="/about" className="navbar-link">
+        About
+      </Link>
+      <Link to="/create" className="navbar-link">
+        Create
+      </Link>
+      
+    </div>
+  );
+}
 
 export default NavBar;

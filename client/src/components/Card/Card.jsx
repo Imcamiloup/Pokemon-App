@@ -1,26 +1,38 @@
 import { NavLink } from "react-router-dom";
+import './Card.css';
+
+
 
 const Card  = ({pokemon}) => {
 
     const {id, name, image} = pokemon;
 
 
-
+    const setEmpty =[]
     return (
-        <div  key={id}>
-            <div className="card">
-                <div className="card-image">
-                    <img src={image} alt={name} />
+        
+        
+         <NavLink to={`/detail/${id}`} >
+         <button >
+            <div key={id} className="card-container" >
+                <div className="img-container">
+                    <img src={image} alt={name} className="img"/>
                 </div>
-                <div className="card-name">
-                    <h2>{name}</h2>
-                </div>
+                <div className="info-container">
+                    <b > <h2>{name}</h2> </b>
 
-                <NavLink to={`/detail/${id}`} >
-                    <button className="card-button">+</button>
-                </NavLink> 
+                    <span className="types-container">
+                    {pokemon.types.length > 0 ? 
+                    pokemon.types.map((type) =>  <p className={type.name} key={type.id} >{type.name} </p>)
+                :<p className="unknown">  </p>
+                }
+                    </span>
+    
+                </div>
             </div>
-        </div>
+         </button>
+        </NavLink>
+        
     );
 }
 
