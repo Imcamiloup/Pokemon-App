@@ -8,7 +8,7 @@ const getPokemonsApi = async () => {
         const pokemonsList = [];
         const promises = [];
         
-        for (let i = 1; i <= 100; i++) { 
+        for (let i = 1; i <= 200; i++) { 
             promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`));
         }
         const responses = await Promise.all(promises);
@@ -17,7 +17,7 @@ const getPokemonsApi = async () => {
             const pokemonData = {
                 id: pokemon.id,
                 name: pokemon.name,
-                image: pokemon.sprites.other.dream_world.front_default,
+                image: pokemon.sprites.other.dream_world.front_default || 'https://ih1.redbubble.net/image.1607065329.5170/st,small,507x507-pad,600x600,f8f8f8.jpg',
                 health: pokemon.stats[0].base_stat,
                 attack: pokemon.stats[1].base_stat,
                 defense: pokemon.stats[2].base_stat,
@@ -60,7 +60,7 @@ const getAllPokemonsController = async () => {
             return {
                 id: p.id,
                 name: p.name,
-                image: p.image,
+                image: p.image || 'https://ih1.redbubble.net/image.1607065329.5170/st,small,507x507-pad,600x600,f8f8f8.jpg',
                 health: p.health,
                 attack: p.attack,
                 defense: p.defense,
@@ -118,7 +118,9 @@ const getByIdPokemonController = async (id,origin) => {
         return {
             id: pokemon.id,
             name: pokemon.name,
-            image: pokemon.image,
+            image: pokemon.image == "url_de_la_imagen"?
+             'https://ih1.redbubble.net/image.1607065329.5170/st,small,507x507-pad,600x600,f8f8f8.jpg':
+              pokemon.image ,
             health: pokemon.health,
             attack: pokemon.attack,
             defense: pokemon.defense,

@@ -10,6 +10,7 @@
     align-items:center;
     font-family: 'Inter', sans-serif;
     padding-bottom: 15px;
+    
   }
 
   .card-container:hover {
@@ -70,6 +71,7 @@ button {
 }
 
 .fire{
+    color: #ffffff;
     background-color: #FF4500;
     padding: 2px;
     margin-left: 2px;
@@ -79,6 +81,7 @@ button {
 
 
 .grass{
+    color: #ffffff;
     background-color: #32CD32;
     padding: 2px;
     margin-left: 2px;
@@ -87,6 +90,7 @@ button {
 }
 
 .normal{
+    color: #ffffff;
     background-color: #A9A9A9;
     padding: 2px;
     margin-left: 2px;
@@ -95,6 +99,7 @@ button {
 }
 
 .psychic{
+    color: #ffffff;
     background-color: #FF1493;
     padding: 2px;
     margin-left: 2px;
@@ -103,6 +108,7 @@ button {
 }
 
 .ghost{
+    color: #ffffff;
     background-color: #4B0082;
     padding: 2px;
     margin-left: 2px;
@@ -111,6 +117,7 @@ button {
 }
 
 .ice{
+    color: #ffffff;
     background-color: #00BFFF;
     padding: 2px;
     margin-left: 2px;
@@ -119,6 +126,7 @@ button {
 }
 
 .electric{
+    color: #ffffff;
     background-color: #FFD700;
     padding: 2px;
     margin-left: 2px;
@@ -127,6 +135,7 @@ button {
 }
 
 .flying{
+    color: #ffffff;
     background-color: #87CEEB;
     padding: 2px;
     margin-left: 2px;
@@ -135,6 +144,7 @@ button {
 }
 
 .bug{
+    color: #ffffff;
     background-color: #32CD32;
     padding: 2px;
     margin-left: 2px;
@@ -143,6 +153,7 @@ button {
 }
 
 .poison{
+    color: #ffffff;
     background-color: #8A2BE2;
     padding: 2px;
     margin-left: 2px;
@@ -151,6 +162,7 @@ button {
 }
 
 .fighting{
+    color: #ffffff;
     background-color: #FF4500;
     padding: 2px;
     margin-left: 2px;
@@ -159,6 +171,7 @@ button {
 }
 
 .rock{
+    color: #ffffff;
     background-color: #A9A9A9;
     padding: 2px;
     margin-left: 2px;
@@ -167,6 +180,7 @@ button {
 }
 
 .ground{
+    color: #ffffff;
     background-color: #D2B48C;
     padding: 2px;
     margin-left: 2px;
@@ -175,6 +189,7 @@ button {
 }
 
 .steel{
+    color: #ffffff;
     background-color: #A9A9A9;
     padding: 2px;
     margin-left: 2px;
@@ -183,6 +198,7 @@ button {
 }
 
 .fairy{
+    color: #ffffff;
     background-color: #FF69B4;
     padding: 2px;
     margin-left: 2px;
@@ -191,6 +207,7 @@ button {
 }
 
 .dragon{
+    color: #ffffff;
     background-color: #00BFFF;
     padding: 2px;
     margin-left: 2px;
@@ -199,6 +216,7 @@ button {
 }
 
 .dark{
+    color: #ffffff;
     background-color: #000000;
     padding: 2px;
     margin-left: 2px;
@@ -207,6 +225,7 @@ button {
 }
 
 .shadow{
+    color: #ffffff;
     background-color: #3a3636;
     padding: 2px;
     margin-left: 2px;
@@ -215,6 +234,7 @@ button {
 }
 
 .unknown{
+    color: #ffffff; 
     background-color: #000000;
     align-items:center;
     justify-content: center;

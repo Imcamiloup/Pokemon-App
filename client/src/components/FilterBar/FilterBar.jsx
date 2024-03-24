@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {  getAllPokemons, getPokemonsByFilter } from "../../Redux/pokemonsSlice";
 import useTypes from "../../hooks/useTypes";
 import { useEffect } from "react";
+import './FilterBar.css';
 
 
 
 
-const FilterBar = ({ pokemons}) => {
+const FilterBar = ({ pokemons, setCurrentPage}) => {
 
     const { types } = useTypes();
 
@@ -15,34 +16,42 @@ const FilterBar = ({ pokemons}) => {
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getPokemonsByFilter(pokemons));
-        return ()=> fetch('http://localhost:3001/pokemons')
-        .then((response) => response.json())
-        .then((data) => {
-            dispatch(getAllPokemons(data));
-        })
-    }, []);
 
-    console.log('copy:',copyPokemons)
-    console.log('pokemons:',pokemons)
-   
+    const getPokemons = async () => {
+        const response = await fetch('http://localhost:3001/pokemons')
+        const data = await response.json()
+        dispatch(getPokemonsByFilter(data))
+    }
+
+    useEffect(() =>  {
+        getPokemons()
+    }, [pokemons])
+
     const handleInputChange = (type) => {
-        const typesFiltered = pokemons.filter((pokemon) =>
+        const typesFiltered = copyPokemons.filter((pokemon) =>
           pokemon.types.some((pokemonType) => pokemonType.name === type)
         );
         dispatch(getAllPokemons(typesFiltered));
+        setCurrentPage(1);
       };
 
 
   return (
-    <div>
+    <div className="container-buttons">
+        <div className="button-list">
+        <div  className="card-button">
+            <button className="button-filter" onClick={()=>dispatch(getAllPokemons(copyPokemons))}>All</button>
+        </div>
         {types.map((type) => {
             return (
-                <button key={type.id} value={type.name} onClick={()=>handleInputChange(type.name)} > {type.name} </button>
+                <div className="card-button">
+                    <button className="button-filter" key={type.id} value={type.name} onClick={()=>handleInputChange(type.name)} > {type.name} </button>
+                </div>
             )
         })}
     </div>
+    </div>
+    
   );
 }
 
