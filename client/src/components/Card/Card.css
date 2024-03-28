@@ -243,3 +243,9 @@ button {
     margin-right: 2px;
     border-radius: 5px;
 }
+
+.img-not{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: #f0f0f0;
+}

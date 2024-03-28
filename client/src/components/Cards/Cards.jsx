@@ -27,23 +27,22 @@ const Cards = () => {
 
     return (
         <div className='allcards-container'>
+            
+            <FilterBar setCurrentPage={setCurrentPage}
+                       pokemons = {pokemons} />
+            <SearchBar setCurrentPage={setCurrentPage} pokemons = {pokemons}/>
             < SortBar setOrderAZ={setOrderAZ}
                      setOrderID={setOrderID} 
                      pokemons = {pokemons}
                      orderAZ={orderAZ}
                      orderID={orderID} />
-            <FilterBar setCurrentPage={setCurrentPage}
-                       pokemons = {pokemons} />
-            <SearchBar setCurrentPage={setCurrentPage} pokemons = {pokemons}/>
             <PaginateBar 
             currentPage={currentPage}  
             setCurrentPage = {setCurrentPage} 
             nPages={nPages}
             limit={limit}
             setLimit={setLimit} />
-            
-            {error && <h2>{error}</h2>}
-            {loading? <h2>Loading...</h2>: nPokemons.map((pokemon) => {
+            {loading? <h2>Loading...</h2>:  pokemons[0]==null ?  <h2>POKEMON DON'T EXIST</h2> : nPokemons.map((pokemon) => {
                 return ( 
                     <Card className="cards-place" key={pokemon.id} pokemon={pokemon} />
                 )

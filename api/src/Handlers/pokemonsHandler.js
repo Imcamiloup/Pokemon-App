@@ -30,6 +30,7 @@ const getByNamePokemonsHandler = async (req, res) => {
     const { name } = req.params;
     if (!name) throw new Error("Missing data");
     const pokemons = await getByNamePokemonsController(name)
+    console.log('pokemons:',pokemons)
     res.status(200).json(pokemons)
     }
     catch (error) {
@@ -40,6 +41,7 @@ const getByNamePokemonsHandler = async (req, res) => {
 const createPokemonHandler = async (req, res) => {
     try {
         const { name, image, health, attack, defense, speed, height, weight, types } = req.body;
+        if (!name || !image || !health || !attack || !defense || !speed || !height || !weight || !types) throw new Error("Missing data");
         const newPokemon = await createPokemonController(name, image, health, attack, defense, speed, height, weight, types);
         res.status(200).json(newPokemon);
     } catch (error) {

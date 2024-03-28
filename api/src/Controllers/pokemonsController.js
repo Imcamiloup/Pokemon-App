@@ -226,8 +226,13 @@ const getByNamePokemonsController = async  (name) => {
             }
         }
         
-        
-        return [pokemonData, ...pokemonDbObjects];
+        const pokemonsObject = [    pokemonData, ...pokemonDbObjects];
+        if (pokemonsObject[0] === null){
+            return pokemonDbObjects;
+        }
+        else{
+            return pokemonsObject;
+        }
         
     }catch (error) {
         throw new Error("Error geting pokemons by Name: " + error.message);

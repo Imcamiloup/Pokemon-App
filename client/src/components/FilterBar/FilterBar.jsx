@@ -44,8 +44,8 @@ const FilterBar = ({ pokemons, setCurrentPage}) => {
         </div>
         {types.map((type) => {
             return (
-                <div className="card-button">
-                    <button className="button-filter" key={type.id} value={type.name} onClick={()=>handleInputChange(type.name)} > {type.name} </button>
+                <div key={type.id} className="card-button">
+                    <button className="button-filter"  value={type.name} onClick={()=>handleInputChange(type.name)} > {type.name} </button>
                 </div>
             )
         })}

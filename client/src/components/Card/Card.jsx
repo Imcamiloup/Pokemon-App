@@ -16,15 +16,17 @@ const Card  = ({pokemon}) => {
          <button >
             <div key={id} className="card-container" >
                 <div className="img-container">
-                    <img src={image} alt={name} className="img"/>
+                    {image? <img src={image} alt={name} className="img"/>:
+                    <img className='img-not' src="https://i.pinimg.com/originals/e2/10/ad/e210ad474121596da51be5efc16665c0.jpg" alt={name} />}
                 </div>
                 <div className="info-container">
                     <b > <h2>{name}</h2> </b>
 
                     <span className="types-container">
-                    {pokemon.types.length > 0 ? 
-                    pokemon.types.map((type) =>  <p className={type.name} key={type.id} >{type.name} </p>)
-                :<p className="unknown">  </p>
+                    {pokemon.types ? 
+                    pokemon.types.map((type) => <p className={type.name} key={type.id} >{type.name} </p>)
+                :<h1 className="unknown"> Pokemon don't exist </h1>
+
                 }
                     </span>
     

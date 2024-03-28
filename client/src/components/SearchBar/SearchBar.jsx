@@ -19,10 +19,14 @@ const SearchBar = ({pokemons, setCurrentPage}) => {
 
     const handleSubmit =  async () => {
         const response = await fetch(`http://localhost:3001/pokemons/name/${input}`)
-        const data = await response.json()
-        console.log('data:',data)
-        dispatch(getAllPokemons(data))
-        setCurrentPage(1);
+        .then((response) => response.json())
+        .then((data) => {
+            dispatch(getAllPokemons(data))
+            setCurrentPage(1);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     } 
 
     return (
