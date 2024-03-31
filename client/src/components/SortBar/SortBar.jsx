@@ -2,6 +2,8 @@
 import {  getAllPokemons, getPokemonsSort } from "../../Redux/pokemonsSlice";
 import { useDispatch, useSelector } from "react-redux";
 
+import './SortBar.css';
+
 const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
 
     const pokemonsCopy2 = useSelector((state) => state.pokemon.pokemonsOrder);
@@ -55,14 +57,18 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
 
     return (
         <div className="sortbar">
-        <select value={orderAZ} onChange={ handleAlphabeticalOrder }>
-            <option value="A-Z">A-Z</option>
-            <option value="Z-A">Z-A</option>
-        </select>
-        <select value={orderID} onChange={handleIdOrder}>
-            <option value="ASC">Ascendente</option>
-            <option value="DESC">Descendente</option>
-        </select>
+            <div className="title">Ordenar por:</div>  
+            <div className="select-container">
+                <select value={orderAZ} onChange={ handleAlphabeticalOrder } >
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                </select>
+                <select value={orderID} onChange={handleIdOrder}>
+                    <option value="ASC">Ascendente</option>
+                    <option value="DESC">Descendente</option>
+                </select>
+            </div>
+            
         </div>
     );
     }

@@ -31,13 +31,15 @@ const SearchBar = ({pokemons, setCurrentPage}) => {
 
     return (
         <div className="search-container">
-        <input
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => handleChangeInput(e)}
-            className="search-input"
-        />
-        <button className="search-submit" onClick={ ()=> handleSubmit() } >Search</button>
+            <input
+                type="text"
+                placeholder="Search..."
+                onChange={(e) => handleChangeInput(e)}
+                className="search-input"
+            />
+            <button className="search-submit" onClick={ ()=> handleSubmit() } >
+                <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_1280.png" alt="Search" />
+            </button>
         </div>
     );
     }

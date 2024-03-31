@@ -1,11 +1,28 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    background-color: #FFD700; /* Color de fondo de la barra de navegación */
+    flex-direction: row;
+  }
+
+  .navbar-logo {
+    width: 20%;
+    display: flex;
     align-items: center;
-    background-color:transparent;
+    justify-content: flex-start;
+  }
+
+  .navbar-links{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px; /* Ajusta el margen de los botones */
   }
   
   .navbar-link {
+    border: 1px solid #000000; /* Borde de los botones */
+    padding: 5px 5px; /* Ajusta el tamaño de los botones */
+    border-radius: 5px; /* Ajusta la curvatura de los botones */
     text-decoration: none;
     color: rgb(7, 7, 7);
     margin-right: 10px; /* Ajusta el margen entre los botones */
@@ -15,8 +32,6 @@
   .navbar-link:hover {
     color: #8a8778; /* Cambia el color al pasar el mouse por encima */
   }
-  
-  
 
   
   .button:hover {
@@ -25,7 +40,7 @@
   }
 
   .img1{
-    width: 100px;
+    width: 80px;
     height: 50px;
   }
 

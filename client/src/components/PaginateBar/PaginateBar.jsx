@@ -26,22 +26,25 @@ const PaginateBar = ({nPages,limit, setLimit, currentPage, setCurrentPage}) => {
     
     return (
         <div className='paginate'>
-            <label >Elementos por página:</label>
-            <div className='elementos-por-pagina'>
-                <select id="selectorElementos" value={limit}  onChange={selectOption}>
-                    <option value="">Seleccionar...</option>
-                    <option value="10"   >10</option>
-                    <option value="15"   >15</option>
-                    <option value="20" >20</option>
+            <div className='current-page'>
+                <label>Elementos por página:</label>
+                <select  className='select' id="selectorElementos" value={limit}  onChange={selectOption}>
+                        <option value="">Seleccionar...</option>
+                        <option value="12"   >12</option>
+                        <option value="24"   >24</option>
+                        <option value="36" >36</option>
                 </select>
             </div>
-            
-            <div >
-                <h3 className='pagina-actual'>{currentPage}-{nPages}</h3>
+            <div className='navigation-container'>
+                <button className='prev' onClick={PrevPage}>
+                    Prev
+                </button>
+                <div className='pagina-actual'>{currentPage}-{nPages}</div>
+                <button className='next' onClick={NextPage}>
+                    Next
+                </button>      
             </div>
-            
-            <button className='prev' onClick={PrevPage}>Previous</button>
-            <button className='next' onClick={NextPage}>Next</button>
+                
         </div>
     );
 }

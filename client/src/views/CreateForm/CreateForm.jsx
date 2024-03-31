@@ -1,6 +1,7 @@
 import useTypes from "../../hooks/useTypes";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
+import './CreateForm.css';
 
 
 const Create = () => {
@@ -227,7 +228,7 @@ const Create = () => {
 
     
     return (
-        <div >
+        <div  className="form-container">
         <h1>Create Pokemon</h1>
         <form onSubmit={handleSubmit}>
             <div>

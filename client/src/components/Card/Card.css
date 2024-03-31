@@ -1,15 +1,13 @@
 .card-container {
     box-shadow: 1px 6px 8px 0 rgba(0,0,0,0.2);
     border-radius: 10px; 
-    width: 180px;
-    height: 200px;
+    width: 140px;
+    height: 180px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
     justify-content: center;
     align-items:center;
     font-family: 'Inter', sans-serif;
-    padding-bottom: 15px;
     
   }
 
@@ -18,14 +16,14 @@
   }
 
 .img{
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    height: 120px;
     border-radius: 10px 10px 0 0;
 }  
 
 button {
-    width: 240px;
-    height: 280px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     cursor: pointer;
     background-color: transparent;
@@ -42,13 +40,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(247, 247, 243);
+    background-color: transparent;
 
   }
 
   .info-container {
     
-    display:flow-root;  
+    font-size: 0.8em; 
     text-transform: capitalize;
 
    

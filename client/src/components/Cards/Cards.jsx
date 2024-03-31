@@ -11,7 +11,7 @@ import './Cards.css';
 const Cards = () => {
 
     const {pokemons, loading, error, types } = useFetch();
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
     const [orderAZ, setOrderAZ] = useState('A-Z');
     const [orderID, setOrderID] = useState('ASC');
@@ -26,27 +26,40 @@ const Cards = () => {
 
 
     return (
-        <div className='allcards-container'>
+        <div className='cards' >
+            <div className='filters-container'>
+                <FilterBar setCurrentPage={setCurrentPage}
+                        pokemons = {pokemons} />
+            </div>
+            <div>
+                <SearchBar setCurrentPage={setCurrentPage} pokemons = {pokemons}/>
+            </div>
+            <div className='settings-container'>
+                < SortBar setOrderAZ={setOrderAZ}
+                            setOrderID={setOrderID} 
+                            pokemons = {pokemons}
+                            orderAZ={orderAZ}
+                            orderID={orderID} />
+                    <PaginateBar 
+                    className='paginate-bar'
+                    currentPage={currentPage}  
+                    setCurrentPage = {setCurrentPage} 
+                    nPages={nPages}
+                    limit={limit}
+                    setLimit={setLimit} />  
+            </div>
+            {loading? <div className='loader'></div>:  pokemons[0]==null ?  <h2>POKEMON DON'T EXIST</h2> : 
+                <div className='cards-place'>
+                    {nPokemons.map((pokemon) => {
+                    return ( 
+                        <Card  key={pokemon.id} pokemon={pokemon} />
+                    )
+                })}
+                </div>
+                
+                }      
             
-            <FilterBar setCurrentPage={setCurrentPage}
-                       pokemons = {pokemons} />
-            <SearchBar setCurrentPage={setCurrentPage} pokemons = {pokemons}/>
-            < SortBar setOrderAZ={setOrderAZ}
-                     setOrderID={setOrderID} 
-                     pokemons = {pokemons}
-                     orderAZ={orderAZ}
-                     orderID={orderID} />
-            <PaginateBar 
-            currentPage={currentPage}  
-            setCurrentPage = {setCurrentPage} 
-            nPages={nPages}
-            limit={limit}
-            setLimit={setLimit} />
-            {loading? <h2>Loading...</h2>:  pokemons[0]==null ?  <h2>POKEMON DON'T EXIST</h2> : nPokemons.map((pokemon) => {
-                return ( 
-                    <Card className="cards-place" key={pokemon.id} pokemon={pokemon} />
-                )
-            })}
+            
 
         </div>
       );
