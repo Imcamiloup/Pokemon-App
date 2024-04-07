@@ -38,12 +38,32 @@ const FilterBar = ({ pokemons, setCurrentPage}) => {
         setCurrentPage(1);
       };
 
+    const handleDBPokemons = () => {
+        const dBFiltered = copyPokemons.filter((pokemon) =>
+            pokemon.id.length > 6
+        );
+        dispatch(getAllPokemons(dBFiltered));
+        setActiveButton('db');
+        setCurrentPage(1);
+    };
+
+    const handleApiPokemons = () => {
+        const apiFiltered = copyPokemons.filter((pokemon) =>
+            typeof pokemon.id === 'number'
+        );
+        dispatch(getAllPokemons(apiFiltered));
+        setActiveButton('api');
+        setCurrentPage(1);
+    };   
+
+
       
       
 
         const handleAllFilter = () => {
           dispatch(getAllPokemons(copyPokemons));
           setActiveButton('all');
+        setCurrentPage(1);
         };
         
 
@@ -53,6 +73,10 @@ const FilterBar = ({ pokemons, setCurrentPage}) => {
             <div  className="card-button">
                 <button className={`button-filter ${activeButton === "all" ? "active-button" : ""}`}
                          onClick={ ()=> handleAllFilter() }>All </button>
+            <button className={`button-filter ${activeButton === "db" ? "active-button" : ""}`}
+                            onClick={ ()=> handleDBPokemons() }>DB </button>
+            <button className={`button-filter ${activeButton === "api" ? "active-button" : ""}`}
+                            onClick={ ()=> handleApiPokemons() }>API </button>
             </div>
             {types.map((type) => {
                 return (

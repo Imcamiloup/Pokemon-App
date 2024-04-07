@@ -103,14 +103,14 @@ const Create = () => {
         }
         if (!input.height){
             validationErrors.height = 'Height is required';
-        } else if (input.height < 1 || input.height > 255) {
+        } else if (input.height < 1 || input.height > 1000) {
             validationErrors.height = 'Height must be between 1 and 255';
         } else {
             validationErrors.height = '';
         }
         if (!input.weight){
             validationErrors.weight = 'Weight is required';
-        } else if (input.weight < 1 || input.weight > 255) {
+        } else if (input.weight < 1 || input.weight > 10000) {
             validationErrors.weight = 'Weight must be between 1 and 255';
         } else {
             validationErrors.weight = '';
@@ -229,109 +229,117 @@ const Create = () => {
     
     return (
         <div  className="form-container">
-        <h1>Create Pokemon</h1>
-        <form onSubmit={handleSubmit}>
-            <div>
-            <label>Name:</label>
-            <input
-                type="text"
-                name="name"
-                value={input.name}
-                onChange={handleChange}
-            />
-            {errors.name && <p>{errors.name}</p>}
+        <h2>Create Pokemon</h2>
+        <form onSubmit={handleSubmit} className="form">
+            <div className="data-form">
+                <label>Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={input.name}
+                    onChange={handleChange}
+                    className="input-box"
+                />
+                {errors.name && <p>{errors.name}</p>}
             </div>
-            <div>
-            <label>Image:</label>
+            <div className="data-form">
+            <label>Image</label>
             <input
                 type="text"
                 name="image"
                 value={input.image}
                 onChange={handleChange}
+                className="input-box"
             />
             {errors.image && <p>{errors.image}</p>}
             </div>
-            <div >
-            <label>health:</label>
+            <div className="data-form" >
+            <label>Health</label>
             <input
                 type="number"
                 name="health"
                 value={input.health}
                 onChange={handleChange}
+                className="input-box"
             />
             {errors.health && <p>{errors.health}</p>}
             </div>
-            <div >
-            <label>Attack:</label>
+            <div className="data-form" >
+            <label>Attack</label>
             <input
                 type="number"
                 name="attack"
                 value={input.attack}
                 onChange={handleChange}
+                className="input-box"
             />
             {errors.attack && <p>{errors.attack}</p>}
             </div>
-            <div >
-            <label>Defense:</label>
+            <div className="data-form" >
+            <label>Defense</label>
             <input
                 type="number"
                 name="defense"
                 value={input.defense}
                 onChange={handleChange}
+                className="input-box"
             />
             {errors.defense && <p>{errors.defense}</p>}
             </div>
-            <div >
-            <label>Speed:</label>
+            <div className="data-form" >
+            <label>Speed</label>
             <input
                 type="number"
                 name="speed"
                 value={input.speed}
                 onChange={handleChange}
+                className="input-box"
             />
             {errors.speed && <p>{errors.speed}</p>}
             </div>
-            <div >
-            <label>Height:</label>
-            <input
-                type="number"
-                name="height"
-                value={input.height}
-                onChange={handleChange}
-            />
-            {errors.height && <p>{errors.height}</p>}
+            <div className="data-form" >
+                <label>Height</label>
+                <input
+                    type="number"
+                    name="height"
+                    value={input.height}
+                    onChange={handleChange}
+                    className="input-box"
+                />
+                {errors.height && <p>{errors.height}</p>}
             </div>
-            <div >
-            <label>Weight:</label>
-            <input
-                type="number"
-                name="weight"
-                value={input.weight}
-                onChange={handleChange}
-            />
+            <div className="data-form" >
+                <label>Weight:</label>
+                <input
+                    type="number"
+                    name="weight"
+                    value={input.weight}
+                    onChange={handleChange}
+                    className="input-box"
+                />
             {errors.weight && <p>{errors.weight}</p>}
             </div>
-            <div >
-            <label>Types:</label>
-            <select onChange={handleSelect}>
-                <option>Select type</option>
-                {types.map((type) => (
-                <option key={type.id} value={type.id}>
-                    {type.name}
-                </option>
-                ))}
-            </select>
-            {errors.types && <p>{errors.types}</p>}
-            <ul>
-                {input.types.map((type) => (
-                <li key={type}>
-                    {types.find((t) => t.id === type).name}
-                    <button type="button" value={type} onClick={handleDelete}>
-                    X
-                    </button>
-                </li>
-                ))}
-            </ul>
+            <div className="data-types" >
+                <label>Types:</label>
+                <select onChange={handleSelect}>
+                    <option>Select type</option>
+                    {types.map((type) => (
+                    <option key={type.id} value={type.id}>
+                        {type.name}
+                    </option>
+                    ))}
+                </select>
+                {errors.types && <p>{errors.types}</p>}
+                <ul>
+                    {input.types.map((type) => (
+                    <li key={type}>
+                        {types.find((t) => t.id === type).name}
+                        <button type="button" value={type} onClick={handleDelete}>
+                        X
+                        </button>
+                    </li>
+                    ))}
+                </ul>
             </div>
             <button type="submit" disabled={isSubmitted === false}>Create</button>
         </form>

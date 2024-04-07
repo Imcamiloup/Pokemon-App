@@ -15,7 +15,6 @@ const Cards = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [orderAZ, setOrderAZ] = useState('A-Z');
     const [orderID, setOrderID] = useState('ASC');
-    console.log(pokemons);
 
     const indexFinal = currentPage * limit;
     const indexStart = indexFinal - limit;

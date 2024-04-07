@@ -8,7 +8,7 @@ const getPokemonsApi = async () => {
         const pokemonsList = [];
         const promises = [];
         
-        for (let i = 1; i <= 200; i++) { 
+        for (let i = 1; i <= 400; i++) { 
             promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`));
         }
         const responses = await Promise.all(promises);
@@ -41,7 +41,7 @@ const getAllPokemonsController = async () => {
             return {
                 ...p,
                 types: p.types.map((t, index) => ({ 
-                    id: index + 1, // Asignar un ID único a cada tipo
+                    id: index + 1, 
                     name: t.name 
                 }))
             };
@@ -191,8 +191,9 @@ const getByNamePokemonsController = async  (name) => {
         });
         let pokemonData=[];
         try{
-            const pokemonApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)? 
-            await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`) : {};
+            const pokemonNameLowerCase = name.toLowerCase();
+            const pokemonApi = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNameLowerCase}`)? 
+            await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNameLowerCase}`) : {};
 
             if (pokemonApi.data){
                 pokemonData = {

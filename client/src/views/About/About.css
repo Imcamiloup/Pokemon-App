@@ -1,0 +1,34 @@
+/* About.css */
+.about-container {
+    color: #100a51;
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+     margin: 50px;
+
+  }
+  
+  .about-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    
+
+  }
+  
+  .about-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+  .about-image {
+    width: 90%;
+    min-height: 500px; /* Reducir el tamaño de la imagen para dispositivos móviles */
+    max-height: 500px; /* Reducir el tamaño de la imagen para dispositivos móviles */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  

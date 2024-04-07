@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 import { NavLink } from "react-router-dom";
 import './Card.css';
 
@@ -6,6 +8,16 @@ import './Card.css';
 const Card  = ({pokemon}) => {
 
     const {id, name, image} = pokemon;
+
+    const [modalIsOpen, setModalIsOpen] = useState(false); // Estado para controlar la apertura/cierre del modal
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
 
 
     const setEmpty =[]

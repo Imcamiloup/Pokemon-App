@@ -1,12 +1,11 @@
 
 import {  getAllPokemons, getPokemonsSort } from "../../Redux/pokemonsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 import './SortBar.css';
 
 const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
 
-    const pokemonsCopy2 = useSelector((state) => state.pokemon.pokemonsOrder);
     const pokemonsCopy = [...pokemons];
     const dispatch = useDispatch();
 
@@ -15,7 +14,7 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
             pokemonsCopy.sort((a, b) => {
                 return b.name.localeCompare(a.name);
             });
-            console.log('pokemonsCopy:', pokemonsCopy)
+
             return pokemonsCopy;
         } if (order === 'Z-A') {
             pokemonsCopy.sort((a, b) => {
@@ -27,10 +26,10 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
 
     const idOrder =  (order) => {
         if(order === 'ASC') {
-            pokemonsCopy.sort((a, b) => b.id - a.id);
+            pokemonsCopy.sort((a, b) => b.attack - a.attack);
             return pokemonsCopy;
         } if(order === 'DESC') {
-            pokemonsCopy.sort((a, b) => a.id - b.id);
+            pokemonsCopy.sort((a, b) => a.attack - b.attack);
             return pokemonsCopy;
         }
     }
@@ -39,9 +38,7 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
     const handleAlphabeticalOrder = (e) => {
         const order = e.target.value;
         setOrderAZ(order);
-        console.log('order:', order)
         const ordered = alphabeticalOrder(orderAZ);
-        console.log('orderedAlph:', ordered)
         dispatch(getAllPokemons(ordered));
     }
 
@@ -49,8 +46,6 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
         const order = e.target.value;
         setOrderID(order);
         const ordered = idOrder(orderID);
-        console.log('orderedID:', ordered)
-        console.log('order:', order)
         dispatch(getAllPokemons(ordered));
 
     }
@@ -64,8 +59,8 @@ const SortBar = ({ orderAZ, orderID, setOrderAZ, setOrderID, pokemons}) => {
                     <option value="Z-A">Z-A</option>
                 </select>
                 <select value={orderID} onChange={handleIdOrder}>
-                    <option value="ASC">Ascendente</option>
-                    <option value="DESC">Descendente</option>
+                    <option value="ASC">Less Attack</option>
+                    <option value="DESC">More Attack</option>
                 </select>
             </div>
             

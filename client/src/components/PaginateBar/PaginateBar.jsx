@@ -19,6 +19,7 @@ const PaginateBar = ({nPages,limit, setLimit, currentPage, setCurrentPage}) => {
 
     const selectOption = (e) => {
         setLimit(e.target.value);
+        setCurrentPage(1);
     }
 
 
@@ -27,7 +28,7 @@ const PaginateBar = ({nPages,limit, setLimit, currentPage, setCurrentPage}) => {
     return (
         <div className='paginate'>
             <div className='current-page'>
-                <label>Elementos por página:</label>
+                <label className='title-paginate'>Elementos por página:</label>
                 <select  className='select' id="selectorElementos" value={limit}  onChange={selectOption}>
                         <option value="">Seleccionar...</option>
                         <option value="12"   >12</option>

@@ -1,15 +1,65 @@
+
+
 .detail-container{
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+
+.middle {
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+.bar-container {
+    width: 100%;
+    background-color: #f4f1b7;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+label{
+    color:rgb(0, 0, 0);
+    padding:50px;
+    font-size:20px;
+}
+
+
+    .bar-health { height: 18px; background-color: #FFD700; border-radius: 5px;}
+    .bar-attack { height: 18px; background-color: #FFD700; border-radius: 5px;}
+    .bar-defense {height: 18px; background-color:#FFD700; border-radius: 5px;}
+    .bar-speed { height: 18px; background-color: #FFD700; border-radius: 5px;}
+    .bar-height { height: 18px; background-color: #FFD700; border-radius: 5px;}
+    .bar-weight { height: 18px; background-color: #FFD700; border-radius: 5px;}
 
 .img-container{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.detail-container {
+    text-transform: capitalize;
+}
+
+.title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.img-detail{
+    width: 300px;
+    height: 300px;
+}
+
+.types-detail{
+    display: flex;
+    padding-left: 250px;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
 }
