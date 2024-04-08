@@ -330,18 +330,23 @@ const Create = () => {
                     ))}
                 </select>
                 {errors.types && <p>{errors.types}</p>}
-                <ul>
+                <div className="new-types" >
                     {input.types.map((type) => (
-                    <li key={type}>
+                    <div key={type} className="type-card" >
                         {types.find((t) => t.id === type).name}
                         <button type="button" value={type} onClick={handleDelete}>
                         X
                         </button>
-                    </li>
+                    </div>
                     ))}
-                </ul>
+                </div>
             </div>
-            <button type="submit" disabled={isSubmitted === false}>Create</button>
+            <div className="submit">
+                <button type="submit" 
+                disabled={isSubmitted === false} 
+                >Create</button>
+            </div>
+            
         </form>
         </div>
     );

@@ -1,9 +1,42 @@
 .container-home{
     display: flex;
     justify-content: center;
-    
-
+    flex-direction: column;
 }
 
 
+.social-container {
+    
+    background-color: aliceblue;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns:30% 40% 30%;
 
+}
+
+.networks-info{
+    display: flex;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.separeted{
+    height: 50px;
+    background-color: #cac4e7;
+    border-top: 2px solid rgb(0, 0, 0);   
+    border-bottom: 2px solid rgb(0, 0, 0); 
+}
+
+.github-img{
+    width: 50px;
+    height: 50px;
+}
+
+.linkedin-img{
+    width: 50px;
+    height: 50px;
+}

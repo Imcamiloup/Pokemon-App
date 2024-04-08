@@ -9,13 +9,13 @@
     background-color: #f9f9f9;
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 30px;
     justify-content: center;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     background-image: url("../../assets/createfont.jpg");
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    
   }
 
  
@@ -161,8 +161,24 @@
   display: grid;
   flex-direction: column;
   grid-template-columns: 20% 1fr;
-  grid-template-rows: 30px 20px;
   position: relative;
   padding-top: 0.9rem;
 }
+
+.new-types{
+  display: flex;
+  padding-top: 10px;
+  flex-direction: row;
+  width: 450px;
+  justify-content: flex-end;
+}
  
+
+.submit{
+  padding-top: 60px;
+}
+
+.type-card{
+  display: flex;
+  flex-direction: column-reverse;
+}

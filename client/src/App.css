@@ -5,8 +5,8 @@
 
   .app{
     background: linear-gradient(rgb(253, 255, 236), rgb(230, 223, 255));
-    background-size: 100%;
-
+    border-left: 0.5px solid #000000;
+    border-right: 0.5px solid #000000;
   }
 }
 
