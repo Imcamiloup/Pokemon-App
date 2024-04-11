@@ -1,7 +1,8 @@
 const { getAllPokemonsController, 
     getByIdPokemonController,
     getByNamePokemonsController,
-    createPokemonController
+    createPokemonController,
+    updatePokemonController
      } = require('../Controllers/pokemonsController');
 
 const getAllPokemonsHandler = async (req, res) => {
@@ -49,9 +50,22 @@ const createPokemonHandler = async (req, res) => {
     }
 }
 
+const updatePokemonHandler = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, image, health, attack, defense, speed, height, weight, types } = req.body;
+        const updatedPokemon = await updatePokemonController(id, name, image, health, attack, defense, speed, height, weight, types);
+        console.log('updatedPokemon:',updatedPokemon)
+        res.status(200).json(updatedPokemon);
+    } catch (error) {
+        res.status(500).send('Error Handler updating pokemon');
+    }
+}
+
 module.exports = {
     getAllPokemonsHandler,
     getByIdPokemonHandler,
     getByNamePokemonsHandler,
     createPokemonHandler,
+    updatePokemonHandler,
 }

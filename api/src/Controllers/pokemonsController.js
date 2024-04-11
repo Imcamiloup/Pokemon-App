@@ -8,7 +8,7 @@ const getPokemonsApi = async () => {
         const pokemonsList = [];
         const promises = [];
         
-        for (let i = 1; i <= 400; i++) { 
+        for (let i = 1; i <= 50; i++) { 
             promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`));
         }
         const responses = await Promise.all(promises);
@@ -240,9 +240,35 @@ const getByNamePokemonsController = async  (name) => {
     }
 }
 
+const updatePokemonController = async (id, name, image, health, attack, defense, speed, height, weight, types) => {
+    if (!id || !name || !image || !health || !attack || !defense || !speed || !height || !weight || !types) throw new Error("Missing data");
+    try {
+        const pokemon = await Pokemon.findByPk(id);
+        console.log('pokemon:',pokemon)
+        if (!pokemon) throw new Error("Pokemon not found");
+        pokemon.name = name;
+        console.log('pokemon.name:',pokemon.name)
+        pokemon.image = image;
+        pokemon.health = health;
+        pokemon.attack = attack;
+        pokemon.defense = defense;
+        pokemon.speed = speed;
+        pokemon.height = height;
+        pokemon.weight = weight;
+        console.log('pokemon:',pokemon)
+        await pokemon.save();
+        return "Pokemon updated successfully";
+    } catch (error) {
+        throw new Error("Error Controller updating pokemon: " + error.message);
+    }
+}
+
 module.exports = {
     getAllPokemonsController,
     getByIdPokemonController,
     getByNamePokemonsController,
-    createPokemonController
+    createPokemonController,
+    updatePokemonController,
 }
+
+
