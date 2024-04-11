@@ -1,10 +1,15 @@
+/* This file is the handler for the pokemons routes,
+ it calls the controllers and send the response to the client*/
 const { getAllPokemonsController, 
     getByIdPokemonController,
     getByNamePokemonsController,
     createPokemonController,
-    updatePokemonController
+    updatePokemonController,
+    deletePokemonController,
      } = require('../Controllers/pokemonsController');
 
+
+//  it response to the client with the pokemons or an error message
 const getAllPokemonsHandler = async (req, res) => {
     try {
         const pokemons = await getAllPokemonsController();
@@ -14,6 +19,7 @@ const getAllPokemonsHandler = async (req, res) => {
     }
 }
 
+//  it response to the client with the pokemon for id or an error message
 const getByIdPokemonHandler = async (req, res) => {
     try {
         const { id } = req.params;
@@ -26,6 +32,7 @@ const getByIdPokemonHandler = async (req, res) => {
     }
 }
 
+//  it response to the client with the pokemons for name or an error message
 const getByNamePokemonsHandler = async (req, res) => {
     try{
     const { name } = req.params;
@@ -39,6 +46,7 @@ const getByNamePokemonsHandler = async (req, res) => {
     }
 }
 
+//  it response to the client with the new pokemon or an error message
 const createPokemonHandler = async (req, res) => {
     try {
         const { name, image, health, attack, defense, speed, height, weight, types } = req.body;
@@ -50,6 +58,7 @@ const createPokemonHandler = async (req, res) => {
     }
 }
 
+//  it response to the client with the updated pokemon or an error message
 const updatePokemonHandler = async (req, res) => {
     try {
         const { id } = req.params;
@@ -62,10 +71,23 @@ const updatePokemonHandler = async (req, res) => {
     }
 }
 
+//  it response to the client with the deleted pokemon or an error message
+const deletePokemonHandler = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedPokemon = await deletePokemonController(id);
+        res.status(200).json(deletedPokemon);
+    } catch (error) {
+        res.status(500).send('Error deleting pokemon');
+    }
+}
+
+
 module.exports = {
     getAllPokemonsHandler,
     getByIdPokemonHandler,
     getByNamePokemonsHandler,
     createPokemonHandler,
     updatePokemonHandler,
+    deletePokemonHandler,
 }

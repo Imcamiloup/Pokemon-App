@@ -1,3 +1,6 @@
+/* This file is the connection to the database,
+ it creates the connection and injects the models to sequelize */
+
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
@@ -47,6 +50,6 @@ Type.belongsToMany(Pokemon, { through: 'PokemonType' });
 
 
 module.exports = {
-   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+   ...sequelize.models, 
+   conn: sequelize, 
 };

@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 
+// We export a function that defines the model
 module.exports = (sequelize) => {
+  // define model
   sequelize.define('Type', {
     id: {
         type: DataTypes.UUID,

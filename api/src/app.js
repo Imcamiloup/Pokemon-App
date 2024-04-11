@@ -1,3 +1,6 @@
+/* Here we are exporting the router object,
+ which is an instance of the express. */
+
 const express = require("express");
 const router = require("./routes");
 const morgan = require("morgan");
@@ -11,6 +14,7 @@ server.use(cors());
 
 server.use(router);
 
+//here verify the server is running
 server.get('/', (req, res) => {
     res.send('API is running');
   });

@@ -1,8 +1,12 @@
+/* Descriptio: This file is the controller for the pokemons routes,
+ it calls the models or the api info and returns the response so that the client receives it*/
+
 const { Pokemon, Type} = require('../db.js');
 const axios = require('axios');
 const { Op } = require('sequelize');
 
 
+// Function to get the pokemons from the API
 const getPokemonsApi = async () => {
     try {
         const pokemonsList = [];
@@ -34,6 +38,7 @@ const getPokemonsApi = async () => {
     }
 }
 
+// Function to get all the pokemons from the API and the DB
 const getAllPokemonsController = async () => {
     try {
         const pokemonsApi = await getPokemonsApi();
@@ -80,6 +85,7 @@ const getAllPokemonsController = async () => {
     }
 }
 
+// Function to get a pokemon by id from the API or the DB
 const getByIdPokemonController = async (id,origin) => {
     try {
         if (!id) throw new Error("Missing data");
@@ -137,6 +143,7 @@ const getByIdPokemonController = async (id,origin) => {
     }
 }
 
+// Function to create a pokemon
 const createPokemonController = async (name, image, health, attack, defense, speed, height, weight, types) => {
     try {
         const newPokemon = await Pokemon.create({
@@ -157,6 +164,7 @@ const createPokemonController = async (name, image, health, attack, defense, spe
     }
 }
 
+// Function to get a pokemon by name from the API or the DB
 const getByNamePokemonsController = async  (name) => {
     try{
         const pokemons = await Pokemon.findAll({
@@ -240,6 +248,7 @@ const getByNamePokemonsController = async  (name) => {
     }
 }
 
+// Function to update a pokemon
 const updatePokemonController = async (id, name, image, health, attack, defense, speed, height, weight, types) => {
     if (!id || !name || !image || !health || !attack || !defense || !speed || !height || !weight || !types) throw new Error("Missing data");
     try {
@@ -263,12 +272,26 @@ const updatePokemonController = async (id, name, image, health, attack, defense,
     }
 }
 
+// Function to delete a pokemon
+const deletePokemonController = async (id) => {
+    try {
+        if (!id) throw new Error("Missing data");
+        const pokemon = await Pokemon.findByPk(id);
+        if (!pokemon) throw new Error("Pokemon not found");
+        await pokemon.destroy();
+        return "Pokemon deleted successfully";
+    } catch (error) {
+        throw new Error("Error deleting pokemon: " + error.message);
+    }
+}
+
 module.exports = {
     getAllPokemonsController,
     getByIdPokemonController,
     getByNamePokemonsController,
     createPokemonController,
     updatePokemonController,
+    deletePokemonController,
 }
 
 
