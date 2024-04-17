@@ -28,7 +28,7 @@ const PaginateBar = ({nPages,limit, setLimit, currentPage, setCurrentPage}) => {
     return (
         <div className='paginate'>
             <div className='current-page'>
-                <label className='title-paginate'>Elementos por página:</label>
+                <div className='title-paginate'>Elementos por página:</div>
                 <select  className='select' id="selectorElementos" value={limit}  onChange={selectOption}>
                         <option value="">Seleccionar...</option>
                         <option value="12"   >12</option>

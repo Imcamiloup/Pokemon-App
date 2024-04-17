@@ -5,8 +5,6 @@ const initialState = {
   allTypes: [],
   pokemonDetail: {},
   pokemonsByFilter: [],
-  pokemonsByName: [],
-  pokemonsSort: [],
 };
 
 //reducer and actions for state allProducts changes
@@ -26,21 +24,14 @@ const pokemonsSlice = createSlice({
     getPokemonsByFilter: (state, action) => {
       state.pokemonsByFilter = action.payload;
     },
-    getPokemonsByName: (state, action) => {
-      state.pokemonsByName = action.payload;  
-    },
-    getPokemonsSort: (state, action) => {
-      state.pokemonsSort = action.payload;
-    },
+
   },
 }); 
 
 export const { getAllPokemons,
                getValueTypes, 
                getPokemonDetail, 
-               getPokemonsByFilter, 
-               getPokemonsByName,
-               getPokemonsSort
+               getPokemonsByFilter,
               } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;

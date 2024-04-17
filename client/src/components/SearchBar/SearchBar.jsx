@@ -1,4 +1,4 @@
-import {  getAllPokemons, getPokemonsByName } from "../../Redux/pokemonsSlice";
+import {  getAllPokemons} from "../../Redux/pokemonsSlice";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";

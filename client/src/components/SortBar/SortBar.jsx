@@ -1,5 +1,5 @@
 
-import {  getAllPokemons, getPokemonsSort } from "../../Redux/pokemonsSlice";
+import {  getAllPokemons } from "../../Redux/pokemonsSlice";
 import { useDispatch} from "react-redux";
 
 import './SortBar.css';

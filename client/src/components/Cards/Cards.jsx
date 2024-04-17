@@ -10,7 +10,7 @@ import './Cards.css';
 
 const Cards = () => {
 
-    const {pokemons, loading, error, types } = useFetch();
+    const {pokemons, loading } = useFetch();
     const [limit, setLimit] = useState(12);
     const [currentPage, setCurrentPage] = useState(1);
     const [orderAZ, setOrderAZ] = useState('A-Z');

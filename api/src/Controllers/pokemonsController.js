@@ -12,7 +12,7 @@ const getPokemonsApi = async () => {
         const pokemonsList = [];
         const promises = [];
         
-        for (let i = 1; i <= 50; i++) { 
+        for (let i = 1; i <= 400; i++) { 
             promises.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`));
         }
         const responses = await Promise.all(promises);
@@ -155,7 +155,7 @@ const createPokemonController = async (name, image, health, attack, defense, spe
             speed,
             height,
             weight,
-            types
+            type
         });
          newPokemon.addType(types);
         return newPokemon;
